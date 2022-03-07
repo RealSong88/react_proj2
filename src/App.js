@@ -26,12 +26,20 @@ function App() {
         <strong>Loading....</strong>
       ) : (
         <select onChange={onChange} value={selected}>
-          {coins.map((coin) => (
+          {/* {coins.map((coin) => (
             <option key={coin.id} value={coin.symbol}>
               {coin.name} ({coin.symbol}) : {coin.quotes.USD.price.toFixed(2)}{" "}
               USD
             </option>
-          ))}
+          ))} */}
+          {coins
+            .filter((coin, index) => index < 5)
+            .map((coin) => (
+              <option key={coin.id} value={coin.symbol}>
+                {coin.name} ({coin.symbol}) : {coin.quotes.USD.price.toFixed(2)}{" "}
+                USD
+              </option>
+            ))}
         </select>
       )}
       <hr />
